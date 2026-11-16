@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Opportunity Analyzer | GBN</title>
+    <link rel="stylesheet" href="../css/opportunity-analyzer.css">
+<link rel="stylesheet" href="../css/gbn-target-multiselect-20261115.css" id="gbn-target-multiselect">
+    <link rel="stylesheet" href="../css/opportunity-insights.css">
+    <link rel="stylesheet" href="../css/buyer-discovery.css">
+
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link rel="stylesheet" href="../css/gbn-global-shell.css">
+<link rel="stylesheet" href="../css/gbn-site-video-20261110_175454.css">
+<link rel="stylesheet" href="../css/gbn-interactive-hover-20261110_182717.css">
+<link rel="stylesheet" href="../css/gbn-blue-text-20261110_182955.css">
+<link rel="stylesheet" href="../css/gbn-public-dollar-coins-20261111_154647.css">
+    <link rel="stylesheet" href="../css/gbn-country-comparison-20261115_092500.css">
+
+<link rel="stylesheet" href="../css/gbn-country-report-export-20261115_093826.css">
+    <link rel="stylesheet" href="../css/gbn-analyzer-intelligence-20261115.css">
+    <link rel="stylesheet" href="../css/gbn-universal-intelligence-20261115.css">
+    <link rel="stylesheet" href="../css/gbn-analyzer-premium-ui-20261115_180419.css">
+    <link rel="stylesheet" href="../css/gbn-analyzer-field-layout-20261115_181506.css">
+<link rel="stylesheet" href="../css/gbn-analyzer-quality-20261116_115317.css">
+</head>
+<body>
+
+<header class="analyzer-nav">
+    <a href="../index.html" class="brand">GBN<span>.</span></a>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="directory.html">Global Directory</a>
+        <a href="suppliers.html">Suppliers</a>
+        <a href="buyer-research.html">Buyer Research</a>
+    </nav>
+</header>
+
+<main class="analyzer-main">
+
+    <section class="analyzer-hero">
+        <span class="eyebrow">GLOBAL BUSINESS INTELLIGENCE</span>
+        <h1>Business Opportunity <span>Analyzer</span></h1>
+        <p>Explore potential international markets for your business.</p>
+    </section>
+
+    <section class="analyzer-panel">
+        <div class="panel-heading">
+            <h2>Tell Us About Your Business</h2>
+            <p>Enter your business information to generate an initial opportunity assessment.</p>
+        </div>
+
+        <form id="analyzerForm">
+
+            <label for="productName">Product or Service</label>
+            <input id="productName" type="text"
+                placeholder="Example: Ready-Made Garments" required maxlength="100">
+            <label for="businessCategory">Business Category (Optional)</label>
+            <input id="businessCategory" type="text"
+                placeholder="Example: Education, Logistics, Healthcare, Construction..."
+                maxlength="100">
+            <small class="gbn-universal-help">
+                Enter any industry or category. You are not limited to a predefined list.
+            </small>
+
+            <label for="targetCountry">Target Country</label>
+                        <select id="targetCountry" multiple hidden>
+                <option value="Germany">Germany</option>
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="India">India</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Australia">Australia</option>
+                <option value="Canada">Canada</option>
+                <option value="France">France</option>
+                <option value="Italy">Italy</option>
+                <option value="South Korea">South Korea</option>
+                <option value="Other">Other</option>
+            </select>
+
+                        <label for="businessType">Your Business Role</label>
+            <input id="businessType" type="text" list="gbnBusinessRoles"
+                placeholder="Enter your business role"
+                maxlength="80" required>
+
+            <datalist id="gbnBusinessRoles">
+                <option value="Manufacturer">
+                <option value="Exporter">
+                <option value="Importer">
+                <option value="Supplier">
+                <option value="Distributor">
+                <option value="Wholesaler">
+                <option value="Retailer">
+                <option value="Service Provider">
+                <option value="Freelancer">
+                <option value="Consultant">
+                <option value="Agency">
+                <option value="Startup">
+                <option value="Investor">
+                <option value="Buyer">
+                <option value="Business Partner">
+            </datalist>
+            <label for="businessModel">Business Operating Model (Optional)</label>
+            <input
+    type="text"
+    id="businessModel"
+    name="businessModel"
+    list="gbnBusinessModelSuggestions"
+    placeholder="e.g. Wholesale, Retail, Import & Export"
+    autocomplete="off"
+>
+<datalist id="gbnBusinessModelSuggestions">
+    <option value="Wholesale">
+    <option value="Retail">
+    <option value="Import & Export">
+    <option value="Manufacturer">
+    <option value="Distributor">
+    <option value="E-commerce">
+    <option value="Marketplace">
+    <option value="Online & Offline">
+    <option value="Service Provider">
+    <option value="B2B">
+    <option value="B2C">
+</datalist>
+
+            <button type="submit" id="analyzeButton">
+                Analyze Business Opportunity
+            </button>
+        </form>
+    </section>
+
+    <section id="analysisResults" class="results-section" hidden>
+        <div class="results-heading">
+            <span class="eyebrow">INITIAL ASSESSMENT</span>
+            <h2>Your Opportunity Report</h2>
+            <p id="reportSummary"></p>
+        </div>
+
+        
+        <div class="insights-grid">
+
+            <article class="insight-card score-card">
+                <span class="insight-label">BUSINESS PROFILE READINESS SCORE</span>
+                <div class="score-number">
+                    <strong id="opportunityScore">--</strong>
+                    <span>/ 100</span>
+                </div>
+                <div class="score-track">
+                    <div id="scoreBar" class="score-fill"></div>
+                </div>
+                <h3 id="scoreLevel">Initial assessment</h3>
+                <p id="scoreExplanation">
+                    Complete your business profile to see the demo score.
+                </p>
+                <p class="score-note">
+                    Measures profile readiness only. Not market demand, profitability or business success.
+                </p>
+            </article>
+
+            <article class="insight-card">
+                <span class="insight-label">MARKET GAP ANALYSIS</span>
+                <h3>Research These Market Gaps</h3>
+                <p class="gap-intro">
+                    These are questions to investigate, not confirmed market gaps.
+                </p>
+                <ul id="marketGapList"></ul>
+            </article>
+
+        </div>
+        <div class="report-grid">
+
+            <article class="report-card">
+                <span class="report-number">01</span>
+                <h3>Potential Buyer Segments</h3>
+                <div id="buyerSegments"></div>
+            </article>
+
+            <article class="report-card">
+                <span class="report-number">02</span>
+                <h3>Market Research Priorities</h3>
+                <div id="marketResearch"></div>
+            </article>
+
+            <article class="report-card">
+                <span class="report-number">03</span>
+                <h3>Business Gaps to Investigate</h3>
+                <div id="businessGaps"></div>
+            </article>
+
+            <article class="report-card">
+                <span class="report-number">04</span>
+                <h3>Recommended Next Steps</h3>
+                <div id="nextSteps"></div>
+            </article>
+
+        </div>
+
+        
+        <section id="buyerDiscovery" class="buyer-discovery">
+            <div class="buyer-heading">
+                <span class="buyer-eyebrow">GLOBAL BUYER INTELLIGENCE</span>
+                <h2>Buyer Discovery</h2>
+                <p>Explore potential buyer groups and prepare your international buyer search.</p>
+            </div>
+
+            <div class="buyer-grid">
+                <article class="buyer-card">
+                    <span class="buyer-number">01</span>
+                    <h3>Potential Buyer Categories</h3>
+                    <div id="buyerCategories"></div>
+                </article>
+
+                <article class="buyer-card">
+                    <span class="buyer-number">02</span>
+                    <h3>Buyer Search Keywords</h3>
+                    <p>Use these keywords to research potential buyers.</p>
+                    <div id="buyerKeywords" class="keyword-list"></div>
+                </article>
+
+                <article class="buyer-card">
+                    <span class="buyer-number">03</span>
+                    <h3>Target Buyer Profile</h3>
+                    <div id="buyerProfile"></div>
+                </article>
+
+                <article class="buyer-card">
+                    <span class="buyer-number">04</span>
+                    <h3>Buyer Research Checklist</h3>
+                    <ul id="buyerChecklist"></ul>
+                </article>
+            </div>
+
+            <p class="buyer-disclaimer">
+                Demo research guidance only. No real buyers, companies or contact details
+                have been verified or retrieved.
+            </p>
+        </section>
+        <!-- GBN COUNTRY COMPARISON START -->
+        <section id="gbnCountryComparison" class="gbn-country-comparison">
+            <div class="gbn-cc-heading">
+                <span class="gbn-cc-eyebrow">INTERNATIONAL MARKET RESEARCH</span>
+                <h2>Country Comparison</h2>
+                <p>Compare research priorities across selected target countries.</p>
+            </div>
+
+            <div class="gbn-cc-selector">
+                <h3>Select Countries</h3>
+                <p>Select 2 to 10 countries for your comparison.</p>
+
+                <div class="gbn-cc-country-grid">
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Germany" checked> Germany</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="United Arab Emirates" checked> UAE</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="United Kingdom" checked> UK</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="United States" checked> USA</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Saudi Arabia"> Saudi Arabia</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="France"> France</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Italy"> Italy</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Japan"> Japan</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="China"> China</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="India"> India</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Malaysia"> Malaysia</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Singapore"> Singapore</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Australia"> Australia</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="Canada"> Canada</label>
+                    <label><input type="checkbox" name="gbnCompareCountry" value="South Korea"> South Korea</label>
+                </div>
+
+                <button type="button" id="gbnCompareButton" class="gbn-cc-button">
+                    Compare Selected Countries
+                </button>
+
+                <p id="gbnCompareMessage" class="gbn-cc-message" aria-live="polite"></p>
+            </div>
+
+            <div id="gbnCompareResults" class="gbn-cc-results" aria-live="polite"></div>
+
+            <p class="gbn-cc-disclaimer">
+                Research guidance only. This comparison does not contain verified live
+                market demand, import statistics, prices, rankings or profitability data.
+                Verify all requirements through official country sources before making decisions.
+            </p>
+        </section>
+        <!-- GBN COUNTRY COMPARISON END -->
+        <p class="disclaimer">
+            Important: This is an illustrative business profile readiness assessment.
+            It does not use live market data or an AI model. Buyer segments
+            and business gaps are research suggestions, not verified demand.
+        </p>
+    </section>
+
+</main>
+
+<footer class="analyzer-footer">
+    GBN. Global Business Network | 2026
+</footer>
+
+<script src="../js/gbn-target-multiselect-20261115.js"></script>
+<script src="../js/opportunity-analyzer.js"></script>
+    <script src="../js/opportunity-insights.js"></script>
+    <script src="../js/buyer-discovery.js"></script>
+    <script src="../js/gbn-global-shell.js"></script>
+<script src="../js/gbn-site-video-20261110_175454.js"></script>
+<script src="../js/gbn-public-dollar-coins-20261111_154647.js"></script>
+    <script src="../js/gbn-country-comparison-20261115_092500.js"></script>
+
+<script src="../js/gbn-country-report-export-20261115_093826.js"></script>
+<script src="../js/gbn-country-selection-fix-20261115_104133.js"></script>
+    <script src="../js/gbn-analyzer-intelligence-20261115.js"></script>
+<script src="../js/gbn-industry-registry-20261115.js"></script>
+<script src="../js/gbn-universal-intelligence-20261115.js"></script>
+<script src="../js/gbn-product-aware-intelligence-20261115.js"></script>
+    <script src="../js/gbn-country-intelligence-20261115_180419.js"></script>
+<script src="../js/gbn-integrated-intelligence-20261115.js"></script>
+<script src="../js/gbn-analyzer-quality-20261116_115317.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

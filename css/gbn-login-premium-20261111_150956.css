@@ -1,0 +1,187 @@
+﻿/* GBN Premium Login Page */
+.gbn-login-page {
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 65px 20px;
+    position: relative;
+    isolation: isolate;
+}
+
+.gbn-login-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(28, 91, 180, .22), transparent 65%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.gbn-login-card {
+    width: 100%;
+    max-width: 470px;
+    padding: 42px;
+    border: 1px solid rgba(90, 160, 255, .25);
+    border-radius: 22px;
+    background: rgba(8, 17, 34, .84);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .38);
+}
+
+.gbn-login-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.gbn-login-brand-mark {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #fff;
+}
+
+.gbn-login-brand-mark span {
+    color: #3997ff;
+}
+
+.gbn-login-eyebrow {
+    color: #65aaff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin: 12px 0;
+}
+
+.gbn-login-title {
+    color: #fff;
+    font-size: 29px;
+    margin: 0 0 9px;
+    text-align: center;
+}
+
+.gbn-login-subtitle {
+    color: #aab9d0;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.gbn-login-field {
+    margin-bottom: 20px;
+}
+
+.gbn-login-field label {
+    display: block;
+    color: #dce8fa;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.gbn-login-field input {
+    width: 100%;
+    min-height: 49px;
+    padding: 13px 15px;
+    border: 1px solid rgba(130, 165, 210, .28);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .055);
+    color: #fff;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color .25s, box-shadow .25s;
+}
+
+.gbn-login-field input:focus {
+    border-color: #3997ff;
+    box-shadow: 0 0 0 3px rgba(57, 151, 255, .14);
+}
+
+.gbn-password-wrap {
+    position: relative;
+}
+
+.gbn-password-wrap input {
+    padding-right: 76px;
+}
+
+.gbn-show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    color: #78b6ff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.gbn-login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 5px 0 24px;
+    font-size: 12px;
+    color: #bdcbe0;
+}
+
+.gbn-login-options a,
+.gbn-login-signup a {
+    color: #69adff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.gbn-login-options a:hover,
+.gbn-login-signup a:hover {
+    color: #fff;
+}
+
+.gbn-login-submit {
+    width: 100%;
+    min-height: 51px;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    background: linear-gradient(100deg, #1768d5, #328fff);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.gbn-login-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(35, 125, 255, .35);
+}
+
+.gbn-login-message {
+    min-height: 20px;
+    margin-top: 16px;
+    text-align: center;
+    color: #83c1ff;
+    font-size: 13px;
+}
+
+.gbn-login-signup {
+    text-align: center;
+    margin-top: 25px;
+    color: #aab9d0;
+    font-size: 13px;
+}
+
+.gbn-login-security {
+    text-align: center;
+    color: #7e91ad;
+    font-size: 11px;
+    margin-top: 25px;
+}
+
+@media (max-width: 520px) {
+    .gbn-login-page { padding: 38px 14px; }
+    .gbn-login-card { padding: 28px 21px; }
+    .gbn-login-title { font-size: 25px; }
+}

@@ -1,0 +1,39 @@
+﻿@media (hover: hover) and (pointer: fine) {
+
+    .card :is(h1,h2,h3,h4,p,a,span):hover,
+    .feature-card :is(h1,h2,h3,h4,p,a,span):hover,
+    .buyer-card :is(h1,h2,h3,h4,p,a,span):hover,
+    .insight-card :is(h1,h2,h3,h4,p,a,span):hover,
+    .activity-card :is(h1,h2,h3,h4,p,a,span):hover,
+    .chart-card :is(h1,h2,h3,h4,p,a,span):hover,
+    .section-heading:hover,
+    .section-head:hover,
+    .panel-heading:hover,
+    .page-title:hover,
+    .hero-content h1:hover,
+    .hero-content h2:hover {
+        color: #39caff !important;
+        text-shadow:
+            0 0 5px rgba(0, 190, 255, .65),
+            0 0 14px rgba(0, 150, 255, .55);
+        animation: gbnBlueTextGlow 1.2s ease-in-out infinite alternate;
+        transition: color .3s ease, text-shadow .3s ease;
+    }
+}
+
+@keyframes gbnBlueTextGlow {
+    from {
+        text-shadow: 0 0 4px rgba(0, 170, 255, .35);
+    }
+    to {
+        text-shadow:
+            0 0 8px rgba(0, 190, 255, .85),
+            0 0 20px rgba(0, 140, 255, .65);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+    }
+}

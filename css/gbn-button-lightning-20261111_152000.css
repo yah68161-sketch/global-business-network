@@ -1,0 +1,14 @@
+﻿.gbn-login-submit {
+    overflow: visible !important;
+    animation: gbn-electric-pulse 1.15s infinite alternate;
+}
+
+@keyframes gbn-electric-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(40,145,255,.3);
+    }
+    100% {
+        box-shadow: 0 0 14px rgba(40,145,255,.8),
+                    0 0 28px rgba(40,145,255,.4);
+    }
+}

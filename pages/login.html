@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Global Business Network</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link rel="stylesheet" href="../css/gbn-global-shell.css">
+    <link rel="stylesheet" href="../css/gbn-site-video-20261110_175454.css">
+    <link rel="stylesheet" href="../css/gbn-interactive-hover-20261110_182717.css">
+    <link rel="stylesheet" href="../css/gbn-blue-text-20261110_182955.css">
+    <link rel="stylesheet" href="../css/gbn-login-premium-20261111_150956.css">
+    <link rel="stylesheet" href="../css/gbn-electric-login-20261111_151606.css">
+    <link rel="stylesheet" href="../css/gbn-button-lightning-20261111_152000.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">GBN<span>.</span></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="suppliers.html">Suppliers</a>
+        <a href="buyers.html">Buyers</a>
+        <a href="rfq.html">Smart RFQ</a>
+    </nav>
+</header>
+
+<main class="gbn-login-page">
+    <section class="gbn-login-card">
+        <div class="gbn-login-brand">
+            <div class="gbn-login-brand-mark">GBN<span>.</span></div>
+            <p class="gbn-login-eyebrow">GLOBAL BUSINESS NETWORK</p>
+        </div>
+
+        <h1 class="gbn-login-title">Welcome Back</h1>
+        <p class="gbn-login-subtitle">Sign in to connect with global business opportunities.</p>
+
+        <form id="loginForm">
+            <div class="gbn-login-field">
+                <label for="loginEmail">Email Address</label>
+                <input id="loginEmail" type="email"
+                    placeholder="Enter your email address"
+                    autocomplete="email" required>
+            </div>
+
+            <div class="gbn-login-field">
+                <label for="loginPassword">Password</label>
+                <div class="gbn-password-wrap">
+                    <input id="loginPassword" type="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password" required>
+                    <button class="gbn-show-password" id="togglePassword"
+                        type="button" aria-label="Show password">Show</button>
+                </div>
+            </div>
+
+            <div class="gbn-login-options">
+                <label>
+                    <input type="checkbox" id="rememberMe">
+                    Remember me
+                </label>
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+            </div>
+
+            <button class="gbn-login-submit" id="loginSubmit" type="submit">
+                Sign In to GBN
+            </button>
+            <p class="gbn-login-message" id="loginMessage" aria-live="polite"></p>
+        </form>
+
+        <p class="gbn-login-signup">
+            Don't have an account?
+            <a href="signup.html">Create Account</a>
+        </p>
+
+        <p class="gbn-login-security">
+            Global connections. Smarter business opportunities.
+        </p>
+    </section>
+</main>
+
+<script>
+const passwordInput = document.getElementById("loginPassword");
+const togglePassword = document.getElementById("togglePassword");
+const message = document.getElementById("loginMessage");
+const loginForm = document.getElementById("loginForm");
+const loginSubmit = document.getElementById("loginSubmit");
+
+togglePassword.addEventListener("click", function () {
+    const isHidden = passwordInput.type === "password";
+    passwordInput.type = isHidden ? "text" : "password";
+    togglePassword.textContent = isHidden ? "Hide" : "Show";
+    togglePassword.setAttribute(
+        "aria-label",
+        isHidden ? "Hide password" : "Show password"
+    );
+});
+
+loginForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    message.textContent = "Signing in...";
+    loginSubmit.disabled = true;
+
+    try {
+        const response = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({
+                email: document.getElementById("loginEmail").value.trim(),
+                password: passwordInput.value
+            })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Login failed.");
+        }
+
+        message.textContent = "Login successful. Opening your dashboard...";
+        message.style.color = "#20c997";
+
+        setTimeout(() => {
+            window.location.href = "global-dashboard.html";
+        }, 700);
+
+    } catch (error) {
+        message.textContent = error.message;
+        message.style.color = "#ff6b6b";
+        loginSubmit.disabled = false;
+    }
+});
+
+document.getElementById("forgotPassword").addEventListener("click", function (event) {
+    event.preventDefault();
+    message.textContent = "Password recovery will be available in a future update.";
+});
+</script>
+
+<script src="../js/gbn-global-shell.js"></script>
+<script src="../js/gbn-site-video-20261110_175454.js"></script>
+<script src="../js/gbn-electric-login-20261111_151606.js"></script>
+<script src="../js/gbn-button-lightning-20261111_152000.js"></script>
+</body>
+</html>

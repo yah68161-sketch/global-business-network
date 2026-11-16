@@ -1,0 +1,119 @@
+﻿/* GBN Premium Interactive Hover System */
+
+:root {
+    --gbn-hover-glow: rgba(0, 170, 255, 0.25);
+    --gbn-hover-border: rgba(60, 190, 255, 0.75);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .card,
+    .feature-card,
+    .activity-card,
+    .chart-card,
+    .buyer-card,
+    .insight-card,
+    .score-card,
+    .report-card,
+    .map-card,
+    .analyzer-panel,
+    .research-panel,
+    .profile-section,
+    .pipeline,
+    .stat-top {
+        transition:
+            transform .32s ease,
+            box-shadow .32s ease,
+            border-color .32s ease,
+            background-color .32s ease;
+        transform: translateY(0);
+    }
+
+    .card:hover,
+    .feature-card:hover,
+    .activity-card:hover,
+    .chart-card:hover,
+    .buyer-card:hover,
+    .insight-card:hover,
+    .score-card:hover,
+    .report-card:hover,
+    .map-card:hover,
+    .analyzer-panel:hover,
+    .research-panel:hover,
+    .profile-section:hover,
+    .pipeline:hover,
+    .stat-top:hover {
+        transform: translateY(-6px);
+        border-color: var(--gbn-hover-border);
+        box-shadow:
+            0 12px 32px var(--gbn-hover-glow),
+            0 0 18px rgba(0, 150, 255, 0.12);
+    }
+
+    .navbar a,
+    .nav a,
+    .sidebar a,
+    .nav-buttons a,
+    button,
+    .primary-btn,
+    .secondary-btn,
+    .icon-btn {
+        transition:
+            transform .25s ease,
+            color .25s ease,
+            background-color .25s ease,
+            box-shadow .25s ease,
+            border-color .25s ease;
+    }
+
+    .navbar a:hover,
+    .nav a:hover,
+    .sidebar a:hover,
+    .nav-buttons a:hover {
+        color: #42cfff;
+        text-shadow: 0 0 12px rgba(0, 180, 255, .45);
+    }
+
+    button:hover,
+    .primary-btn:hover,
+    .secondary-btn:hover,
+    .icon-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 22px rgba(0, 160, 255, .24);
+    }
+
+    .feature-card:hover .icon,
+    .feature-card:hover .feature-icon,
+    .card:hover .icon {
+        filter: drop-shadow(0 0 9px rgba(0, 190, 255, .65));
+    }
+
+    .section-head,
+    .section-heading,
+    .panel-heading {
+        transition: color .25s ease, text-shadow .25s ease;
+    }
+
+    .section-head:hover,
+    .section-heading:hover,
+    .panel-heading:hover {
+        color: #53d4ff;
+        text-shadow: 0 0 14px rgba(0, 170, 255, .25);
+    }
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid #35c9ff;
+    outline-offset: 4px;
+    box-shadow: 0 0 14px rgba(0, 170, 255, .25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}

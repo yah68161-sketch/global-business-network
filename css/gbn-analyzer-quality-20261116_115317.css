@@ -1,0 +1,66 @@
+﻿/* GBN Analyzer Quality Fix */
+
+#analyzerForm > label {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    margin: 15px 0 3px !important;
+    clear: both !important;
+    line-height: 1.6 !important;
+}
+
+#analyzerForm > input:not([type="checkbox"]):not([type="radio"]),
+#analyzerForm > select:not([hidden]) {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#analyzerForm > #targetCountry[hidden] {
+    display: none !important;
+}
+
+#analyzerForm .gbn-universal-help {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+}
+
+#buyerKeywords.keyword-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+#buyerKeywords .buyer-keyword {
+    display: inline-flex !important;
+    flex: 0 1 auto !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.5 !important;
+}
+
+#buyerSegments ul,
+#buyerCategories ul,
+#buyerProfile ul {
+    padding-left: 22px;
+}
+
+#buyerSegments li,
+#buyerCategories li,
+#buyerProfile li {
+    margin: 7px 0;
+    line-height: 1.6;
+}

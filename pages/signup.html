@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join GBN | Global Business Network</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link rel="stylesheet" href="../css/gbn-global-shell.css">
+    <link rel="stylesheet" href="../css/gbn-site-video-20261110_175454.css">
+    <link rel="stylesheet" href="../css/gbn-interactive-hover-20261110_182717.css">
+    <link rel="stylesheet" href="../css/gbn-blue-text-20261110_182955.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">GBN<span>.</span></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="suppliers.html">Suppliers</a>
+        <a href="buyers.html">Buyers</a>
+        <a href="rfq.html">Smart RFQ</a>
+    </nav>
+</header>
+
+<section class="features">
+    <div class="section-heading">
+        <p>JOIN THE GLOBAL NETWORK</p>
+        <h2>Create Your GBN Account</h2>
+    </div>
+
+    <div class="feature-card" style="max-width:500px;margin:auto;">
+        <form id="signupForm">
+            <label for="signupName">Full Name</label>
+            <input id="signupName" name="fullName" type="text"
+                placeholder="Enter your name" autocomplete="name"
+                minlength="2" maxlength="100" required>
+
+            <br><br>
+
+            <label for="signupBusiness">Business Name</label>
+            <input id="signupBusiness" name="businessName" type="text"
+                placeholder="Enter business name" maxlength="150" required>
+
+            <br><br>
+
+            <label for="signupEmail">Email Address</label>
+            <input id="signupEmail" name="email" type="email"
+                placeholder="Enter your email" autocomplete="email" required>
+
+            <br><br>
+
+            <label for="signupCountry">Country</label>
+            <input id="signupCountry" name="country" type="text"
+                placeholder="Enter your country" maxlength="100" required>
+
+            <br><br>
+
+            <label for="signupRole">Account Type</label>
+            <select id="signupRole" name="role" required>
+                <option value="">Select account type</option>
+                <option value="buyer">Buyer</option>
+                <option value="supplier">Supplier</option>
+                <option value="both">Business Service Provider</option>
+            </select>
+            <br><br>
+
+            <label for="signupBusinessType">Business Type</label>
+            <select id="signupBusinessType" name="businessType" required>
+                <option value="">Select business type</option>
+                <option value="Technology">Technology</option>
+                <option value="Garments">Garments</option>
+                <option value="Trading">Trading</option>
+                <option value="Import-Export">Import-Export</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <br><br>
+
+            <label for="signupPassword">Password</label>
+            <input id="signupPassword" name="password" type="password"
+                placeholder="Create password" autocomplete="new-password"
+                minlength="8" maxlength="72" required>
+
+            <br><br>
+
+            <button id="signupSubmit" type="submit" class="primary-btn">
+                Create Account
+            </button>
+        </form>
+
+        <p id="signupMessage" role="status" aria-live="polite"></p>
+
+        <p style="margin-top:20px;">
+            Already registered? <a href="login.html">Login</a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    <h2>GBN<span>.</span></h2>
+    <p>A New Global Business Ecosystem</p>
+</footer>
+
+<script>
+const signupForm = document.getElementById("signupForm");
+const signupMessage = document.getElementById("signupMessage");
+const signupSubmit = document.getElementById("signupSubmit");
+
+signupForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    signupMessage.textContent = "Creating your GBN account...";
+    signupSubmit.disabled = true;
+
+    const payload = {
+        fullName: document.getElementById("signupName").value.trim(),
+        businessName: document.getElementById("signupBusiness").value.trim(),
+        email: document.getElementById("signupEmail").value.trim(),
+        country: document.getElementById("signupCountry").value.trim(),
+        role: document.getElementById("signupRole").value,
+        businessType: document.getElementById("signupBusinessType").value,
+        password: document.getElementById("signupPassword").value
+    };
+
+    try {
+        const response = await fetch("/api/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Account creation failed.");
+        }
+
+        signupMessage.textContent = "Account created successfully. Opening your dashboard...";
+        signupMessage.style.color = "#20c997";
+
+        setTimeout(() => {
+            window.location.href = "global-dashboard.html";
+        }, 900);
+
+    } catch (error) {
+        signupMessage.textContent = error.message;
+        signupMessage.style.color = "#ff6b6b";
+        signupSubmit.disabled = false;
+    }
+});
+</script>
+
+<script src="../js/gbn-global-shell.js"></script>
+<script src="../js/gbn-site-video-20261110_175454.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Business Network | GBN</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/dark-theme.css">
+    <link rel="stylesheet" href="css/gbn-global-shell.css">
+<link rel="stylesheet" href="css/gbn-intro-video.css">
+<link rel="stylesheet" href="css/gbn-site-video-20261110_175454.css">
+<link rel="stylesheet" href="css/gbn-interactive-hover-20261110_182717.css">
+<link rel="stylesheet" href="css/gbn-blue-text-20261110_182955.css">
+<link rel="stylesheet" href="css/gbn-public-dollar-coins-20261111_154647.css">
+<link rel="stylesheet" href="css/gbn-sequential-lightning-20261111_170129.css">
+<link rel="stylesheet" href="css/gbn-hanging-letters-20261111_170446.css">
+<link rel="stylesheet" href="css/gbn-blue-threads-20261111_170823.css">
+<link rel="stylesheet" href="css/gbn-welcome-loop-20261111_171234.css">
+<link rel="stylesheet" href="css/gbn-remove-blue-ropes-20261111_171456.css">
+<link rel="stylesheet" href="css/gbn-remove-ropes-20261111_172311.css">
+</head>
+<body>
+<section id="gbn-welcome-hero" aria-label="Welcome to Global Business Network"></section>
+
+    <header class="navbar">
+        <div class="logo">GBN<span>.</span></div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pages/suppliers.html">Suppliers</a>
+            <a href="pages/buyers.html">Buyers</a>
+            <a href="pages/rfq.html">Smart RFQ</a>
+                    <a href="pages/directory.html">Global Directory</a>
+        <a href="pages/opportunity-analyzer.html">Opportunity Analyzer</a>
+            </nav>
+
+        <div class="nav-buttons">
+            <a href="pages/login.html" class="login">Login</a>
+            <a href="pages/signup.html" class="join">Join GBN</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="tagline">THE FUTURE OF GLOBAL BUSINESS</p>
+
+                <h1>Connect Businesses.<br><span>Create Global Opportunities.</span></h1>
+
+                <p class="description">
+                    A new global ecosystem where businesses discover
+                    trusted partners, connect opportunities and grow
+                    beyond borders.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="pages/signup.html" class="primary-btn">Explore GBN</a>
+                    <a href="pages/suppliers.html" class="secondary-btn">Discover Businesses</a>
+                </div>
+
+                <div class="stats">
+                    <div>
+                        <h2>Global</h2>
+                        <p>Business Network</p>
+                    </div>
+                    <div>
+                        <h2>Smart</h2>
+                        <p>Business Matching</p>
+                    </div>
+                    <div>
+                        <h2>One</h2>
+                        <p>Connected Ecosystem</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+    <video class="gbn-intro-video" autoplay muted loop playsinline preload="metadata">
+        <source src="http://127.0.0.1:5501/intro.mp4" type="video/mp4">
+    </video>
+</div>
+</section>
+
+        <section class="features">
+            <div class="section-heading">
+                <p>ONE PLATFORM. MANY POSSIBILITIES.</p>
+                <h2>Explore the GBN Ecosystem</h2>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span>01</span>
+                    <h3>Global Business Passport</h3>
+                    <p>A unified business identity for building trust across borders.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span>02</span>
+                    <h3>Smart Business Matching</h3>
+                    <p>Discover relevant companies and potential business partners.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span>03</span>
+                    <h3>Smart RFQ</h3>
+                    <p>Create business requests and receive structured quotations.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span>04</span>
+                    <h3>Business Verification</h3>
+                    <p>Build confidence through transparent business information.</p>
+                </div>
+            </div>
+        </section>
+    <section class="opportunity-engine" id="opportunity-engine">
+    <div class="opportunity-heading">
+        <p class="tagline">INTELLIGENCE FOR GLOBAL BUSINESS</p>
+        <h2>AI Business Opportunity Engine</h2>
+        <p>Discover market opportunities, identify business gaps and explore new international markets.</p>
+    </div>
+
+    <div class="opportunity-search">
+        <input type="text" id="opportunitySearch"
+            placeholder="Search products, markets or business opportunities...">
+
+        <select id="opportunityCountry">
+            <option value="">All Countries</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="UAE">UAE</option>
+            <option value="Germany">Germany</option>
+            <option value="USA">USA</option>
+            <option value="Japan">Japan</option>
+        </select>
+
+        <select id="opportunityIndustry">
+            <option value="">All Industries</option>
+            <option value="Garments">Garments</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Technology">Technology</option>
+            <option value="Food">Food</option>
+        </select>
+
+        <button id="opportunitySearchBtn">Find Opportunities</button>
+    </div>
+
+    <div class="opportunity-results">
+        <div class="opportunity-result-heading">
+            <h3>Explore Business Opportunities</h3>
+            <span id="opportunityCount">4 Demo Opportunities</span>
+        </div>
+
+        <div class="opportunity-grid" id="opportunityGrid"></div>
+
+        <p class="demo-notice">
+            Demo information only. These are illustrative opportunities,
+            not verified live market demand or AI-generated research.
+        </p>
+    </div>
+</section>
+</main>
+
+    <footer>
+        <h2>GBN<span>.</span></h2>
+        <p>A New Global Business Ecosystem</p>
+        <p>&copy; 2026 Global Business Network. All rights reserved.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+<script src="js/opportunity-engine.js"></script>
+    <script src="js/gbn-global-shell.js"></script>
+<script src="js/gbn-site-video-20261110_175454.js"></script>
+<script src="js/gbn-public-dollar-coins-20261111_154647.js"></script>
+
+<script src="js/gbn-sequential-lightning-20261111_170129.js"></script>
+<script src="js/gbn-welcome-loop-20261111_171234.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

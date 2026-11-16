@@ -1,0 +1,48 @@
+﻿#gbn-welcome-hero .gbn-welcome-title .gbn-letter {
+  position: relative;
+  transform-origin: top center;
+  transition: top .6s ease, left .6s ease, rotate .6s ease;
+}
+
+/* অক্ষরগুলো বিভিন্ন উচ্চতা ও অবস্থানে ঝুলে থাকবে */
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(7n+1) {
+  top: -24px;
+  left: -3px;
+  rotate: -7deg;
+}
+
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(7n+2) {
+  top: 13px;
+  left: 2px;
+  rotate: 5deg;
+}
+
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(7n+3) {
+  top: -11px;
+  left: -2px;
+  rotate: 3deg;
+}
+
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(7n+4) {
+  top: 25px;
+  left: 3px;
+  rotate: -5deg;
+}
+
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(7n+5) {
+  top: -19px;
+  left: 1px;
+  rotate: 8deg;
+}
+
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(7n+6) {
+  top: 8px;
+  left: -3px;
+  rotate: -3deg;
+}
+
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(7n) {
+  top: -5px;
+  left: 2px;
+  rotate: 6deg;
+}

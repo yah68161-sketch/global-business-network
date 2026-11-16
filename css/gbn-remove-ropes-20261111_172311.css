@@ -1,0 +1,5 @@
+﻿#gbn-welcome-hero .gbn-letter::before,
+#gbn-welcome-hero .gbn-letter::after {
+    display: none !important;
+    content: none !important;
+}

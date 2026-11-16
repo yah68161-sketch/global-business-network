@@ -1,0 +1,107 @@
+﻿#gbn-welcome-hero {
+  position: relative;
+  min-height: 72vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 55px 20px;
+  perspective: 1000px;
+}
+
+#gbn-welcome-hero .gbn-welcome-title {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(35px, 7vw, 88px);
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: .045em;
+  color: #eaf7ff;
+  text-shadow: 0 0 12px #168cff, 0 0 30px #087bff, 0 8px 22px #000;
+  transform-style: preserve-3d;
+}
+
+#gbn-welcome-hero .gbn-letter {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(28px) rotateX(65deg) scale(.75);
+  white-space: pre;
+  transition: opacity .35s ease, filter .45s ease, transform .55s cubic-bezier(.2,.8,.2,1);
+}
+
+#gbn-welcome-hero .gbn-letter.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) rotateX(0) scale(1);
+  animation: gbn-letter-float 3s ease-in-out infinite;
+}
+
+#gbn-welcome-hero .gbn-letter:nth-child(3n).is-visible {
+  color: #ffffff;
+  text-shadow: 0 0 8px #55c7ff, 0 0 24px #168cff, 0 0 42px #0066ff;
+}
+
+#gbn-welcome-hero .gbn-lightning-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#gbn-welcome-hero .gbn-lightning-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+#gbn-welcome-hero .gbn-bolt-glow {
+  fill: none;
+  stroke: #168bff;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: bevel;
+  filter: drop-shadow(0 0 8px #168bff) drop-shadow(0 0 18px #0066ff);
+}
+
+#gbn-welcome-hero .gbn-bolt-core {
+  fill: none;
+  stroke: #eafaff;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: bevel;
+  filter: drop-shadow(0 0 5px #ffffff);
+}
+
+#gbn-welcome-hero .gbn-bolt {
+  opacity: 0;
+  animation: gbn-bolt-flash .19s ease-out forwards;
+}
+
+@keyframes gbn-bolt-flash {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  35% { opacity: .9; }
+  65% { opacity: .35; }
+  100% { opacity: 0; }
+}
+
+@keyframes gbn-letter-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+
+@media (max-width: 600px) {
+  #gbn-welcome-hero { min-height: 58vh; padding: 35px 12px; }
+  #gbn-welcome-hero .gbn-welcome-title { letter-spacing: .015em; }
+}

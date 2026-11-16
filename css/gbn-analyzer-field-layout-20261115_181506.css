@@ -1,0 +1,59 @@
+/* GBN Analyzer - Premium Field Layout */
+#analyzerForm {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 9px;
+    align-items: start;
+}
+
+#analyzerForm > label {
+    display: block !important;
+    width: 100%;
+    margin: 7px 0 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+#analyzerForm > input:not([type="checkbox"]):not([type="radio"]),
+#analyzerForm > select:not([hidden]),
+#analyzerForm .gbn-target-picker {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#analyzerForm > #targetCountry[hidden] {
+    display: none !important;
+}
+
+#analyzerForm .gbn-universal-help {
+    display: block;
+    width: 100%;
+    margin: 0 0 5px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+#analyzerForm > datalist {
+    display: none !important;
+}
+
+#analyzerForm > button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+    #analyzerForm {
+        row-gap: 8px;
+    }
+
+    #analyzerForm > label {
+        margin-top: 6px;
+    }
+}

@@ -1,0 +1,14 @@
+﻿.gbn-intro-video {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    max-height: 65vh;
+    object-fit: contain;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    margin: 0;
+}

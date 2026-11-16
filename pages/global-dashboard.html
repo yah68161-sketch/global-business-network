@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Business Network | Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+ --bg:#080e19;--panel:#111b2b;--panel2:#152235;--line:#26364c;
+ --cyan:#24e6df;--blue:#42a5ff;--purple:#a56bff;--text:#eaf3ff;
+ --muted:#8495ad;--green:#42e6a4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;min-height:100vh}
+button,input{font:inherit}
+.app{display:flex;min-height:100vh}
+.sidebar{width:245px;background:#0d1726;border-right:1px solid var(--line);padding:25px 17px;position:fixed;inset:0 auto 0 0;z-index:5;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:11px;padding:5px 8px 30px}
+.brand-mark{width:39px;height:39px;border:1px solid var(--cyan);border-radius:12px;display:grid;place-items:center;color:var(--cyan);box-shadow:0 0 17px #24e6df45}
+.brand-mark svg{width:23px;height:23px}
+.brand-name{font-size:17px;font-weight:800;letter-spacing:.5px}
+.brand-name span{color:var(--cyan)}
+.nav-label{font-size:10px;letter-spacing:1.6px;color:#64758d;padding:14px 12px 10px}
+.nav a{display:flex;align-items:center;gap:13px;padding:12px 13px;margin:4px 0;color:#9aaac0;text-decoration:none;border-radius:9px;font-size:13px;transition:.2s}
+.nav a svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.nav a:hover,.nav a.active{background:linear-gradient(100deg,#15394a,#15263a);color:var(--cyan);box-shadow:inset 3px 0 var(--cyan)}
+.sidebar-bottom{margin-top:auto;border:1px solid var(--line);background:#111e30;border-radius:12px;padding:15px}
+.sidebar-bottom strong{font-size:12px}
+.sidebar-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:7px 0 12px}
+.sidebar-bottom a{color:var(--cyan);font-size:11px;text-decoration:none}
+.main{margin-left:245px;width:calc(100% - 245px);padding:25px 30px 35px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:27px}
+.page-title small{color:var(--cyan);font-size:10px;letter-spacing:1.8px;font-weight:700}
+.page-title h1{font-size:24px;margin-top:6px}
+.top-actions{display:flex;align-items:center;gap:12px}
+.search{display:flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line);padding:10px 13px;border-radius:9px;width:220px}
+.search svg{width:16px;color:var(--muted)}
+.search input{background:none;border:0;outline:0;color:white;width:100%;font-size:12px}
+.icon-btn{width:39px;height:39px;border:1px solid var(--line);background:var(--panel);border-radius:10px;color:#c5d4e8;display:grid;place-items:center;position:relative;cursor:pointer}
+.icon-btn svg{width:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.dot{position:absolute;width:7px;height:7px;border-radius:50%;background:#ff617e;right:8px;top:7px}
+.profile{display:flex;align-items:center;gap:9px;font-size:12px}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#20d9d2,#6657ca);display:grid;place-items:center;font-weight:800;color:#07131d}
+.profile small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:22px 0 13px}
+.section-head h2{font-size:14px}
+.section-head span{font-size:11px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:linear-gradient(145deg,#142238,#101a2a);border:1px solid var(--line);border-radius:13px;padding:17px;box-shadow:0 8px 25px #0002;min-width:0}
+.stat-top{display:flex;justify-content:space-between;align-items:center;color:#a4b4c9;font-size:11px}
+.stat-icon{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#1a3a4b;color:var(--cyan)}
+.stat-icon.purple{background:#30234c;color:var(--purple)}
+.stat-icon.blue{background:#1b3150;color:var(--blue)}
+.stat-icon.green{background:#153c36;color:var(--green)}
+.stat-icon svg{width:17px;stroke:currentColor;fill:none;stroke-width:1.8}
+.stat-value{font-size:27px;font-weight:700;margin:13px 0 7px;letter-spacing:-1px}
+.stat-foot{font-size:10px;color:var(--muted)}
+.positive{color:var(--green);font-weight:600}
+.middle-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);gap:15px}
+.map-card{padding:18px;min-height:330px}
+.map-head{display:flex;justify-content:space-between;align-items:center}
+.map-head h3,.chart-card h3{font-size:13px}
+.map-head select{background:#17263a;border:1px solid var(--line);color:#aebdd0;padding:7px 9px;border-radius:7px;font-size:10px}
+.map-area{height:255px;margin-top:10px;position:relative;overflow:hidden;border-radius:10px;background:radial-gradient(ellipse at center,#153047 0%,#101d30 55%,#101a29 100%)}
+.map-area:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#28415a33 1px,transparent 1px),linear-gradient(90deg,#28415a33 1px,transparent 1px);background-size:35px 35px}
+.world{position:absolute;inset:12px 2%;width:96%;height:90%;opacity:.9}
+.world .land{fill:#304d65;stroke:#52728a;stroke-width:1.1}
+.route{fill:none;stroke:#26e6df;stroke-width:1.5;stroke-dasharray:5 5;filter:drop-shadow(0 0 4px #24e6df)}
+.pin{fill:#22e6e0;stroke:#b6ffff;stroke-width:2;filter:drop-shadow(0 0 7px #24e6df)}
+.map-tag{position:absolute;background:#102638dd;border:1px solid #287b85;padding:7px 10px;border-radius:7px;font-size:10px;color:#b7fdfa}
+.map-legend{position:absolute;left:13px;bottom:12px;background:#101d2ddd;border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:10px;color:#aabbd0;line-height:1.9}
+.legend-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;background:var(--cyan)}
+.activity-card{padding:18px}
+.activity-list{margin-top:17px}
+.activity{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid #26364c}
+.activity:last-child{border:0}
+.activity-icon{width:32px;height:32px;flex-shrink:0;border-radius:9px;background:#153b42;color:var(--cyan);display:grid;place-items:center}
+.activity-icon svg{width:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+.activity strong{font-size:11px;display:block;margin:2px 0 5px}
+.activity p{font-size:10px;color:var(--muted);line-height:1.5}
+.activity time{font-size:9px;color:#71839b;display:block;margin-top:5px}
+.bottom-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:15px}
+.chart-card{padding:18px;min-height:220px}
+.chart-sub{color:var(--muted);font-size:10px;margin-top:6px}
+.bar-chart{height:125px;display:flex;align-items:end;justify-content:space-around;gap:10px;padding:12px 5px 0;border-bottom:1px solid var(--line);margin-top:12px}
+.bar-group{height:100%;display:flex;align-items:end;gap:4px;position:relative}
+.bar{width:10px;border-radius:4px 4px 0 0;background:linear-gradient(0deg,#2583d9,#30e5e0);box-shadow:0 0 9px #24e6df55}
+.bar.alt{background:linear-gradient(0deg,#7446cb,#bd78ff);box-shadow:0 0 9px #a56bff55}
+.bar-labels{display:flex;justify-content:space-around;color:var(--muted);font-size:9px;margin-top:8px}
+.line-chart{width:100%;height:130px;margin-top:13px}
+.line-chart svg{width:100%;height:100%;overflow:visible}
+.line-a{fill:none;stroke:var(--cyan);stroke-width:2.5;filter:drop-shadow(0 0 4px #24e6df)}
+.line-b{fill:none;stroke:var(--purple);stroke-width:2.5}
+.pipeline{display:flex;align-items:center;justify-content:space-between;margin:25px 0 18px;gap:4px}
+.node{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#123d48;border:1px solid var(--cyan);color:var(--cyan);font-size:12px;box-shadow:0 0 12px #24e6df44}
+.node.p{background:#302044;border-color:var(--purple);color:var(--purple)}
+.connector{height:2px;flex:1;background:linear-gradient(90deg,var(--cyan),var(--purple))}
+.pipeline-labels{display:flex;justify-content:space-between;font-size:9px;color:var(--muted)}
+.footer{font-size:10px;color:#62748c;text-align:center;margin-top:27px}
+.menu-toggle{display:none}
+@media(max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}.bottom-grid{grid-template-columns:1fr 1fr}.bottom-grid .chart-card:last-child{grid-column:span 2}}
+@media(max-width:760px){
+ .sidebar{transform:translateX(-100%);transition:.25s;width:245px}.sidebar.open{transform:translateX(0)}
+ .main{margin-left:0;width:100%;padding:19px 15px}
+ .menu-toggle{display:grid}
+ .topbar{align-items:flex-start}.top-actions{gap:7px}.search{width:145px}
+ .profile .profile-info{display:none}
+ .page-title h1{font-size:19px}
+ .middle-grid{grid-template-columns:1fr}
+ .bottom-grid{grid-template-columns:1fr}
+ .bottom-grid .chart-card:last-child{grid-column:auto}
+}
+@media(max-width:430px){.stats{gap:9px}.card{padding:13px}.stat-value{font-size:22px}.stat-top{font-size:9px}.search{width:115px}.top-actions{gap:5px}.profile{display:none}}
+</style>
+    <link rel="stylesheet" href="../css/gbn-global-shell.css">
+<link rel="stylesheet" href="../css/gbn-site-video-20261110_175454.css">
+<link rel="stylesheet" href="../css/gbn-interactive-hover-20261110_182717.css">
+<link rel="stylesheet" href="../css/gbn-blue-text-20261110_182955.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+ <div class="brand">
+  <div class="brand-mark">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5M6 10.5h9M10.5 6v9"/></svg>
+  </div>
+  <div class="brand-name">GLOBAL<span>BN</span></div>
+ </div>
+ <div class="nav-label">MAIN MENU</div>
+ <nav class="nav">
+  <a class="active" href="../index.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+  <a href="directory.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>Global Directory</a>
+  <a href="suppliers.html"><svg viewBox="0 0 24 24"><path d="M3 7h18v13H3zM3 11h18M8 7V4h8v3M8 15h3"/></svg>Suppliers</a>
+  <a href="buyers.html"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21v-2a7 7 0 0 1 14 0v2M17 5a4 4 0 0 1 0 7M19 15a5 5 0 0 1 3 5"/></svg>Buyers</a>
+  <a href="rfq.html"><svg viewBox="0 0 24 24"><path d="M4 4h16v13H8l-4 4zM8 9h8M8 13h5"/></svg>Smart RFQ</a>
+  <a href="opportunity-analyzer.html"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 4 3 6-8"/></svg>Opportunity Engine</a>
+  <a href="buyer-research.html"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5M8 10h5M10.5 8v5"/></svg>Buyer Research</a>
+  <a href="business-opportunities.html"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5 5l14 14M19 5 5 19"/></svg>Business Opportunities</a>
+ </nav>
+ <div class="nav-label">ACCOUNT</div>
+ <nav class="nav">
+  <a href="login.html"><svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5M15 12H3M21 3v18"/></svg>Sign In</a>
+  <a href="signup.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0M19 8v6M16 11h6"/></svg>Create Account</a>
+ </nav>
+ <div class="sidebar-bottom">
+  <strong>Global Business Network</strong>
+  <p>Connect globally. Discover opportunities. Grow your business.</p>
+  <a href="../index.html">Explore GBN â†’</a>
+ </div>
+</aside>
+
+<main class="main">
+ <header class="topbar">
+  <div style="display:flex;align-items:center;gap:12px">
+   <button class="icon-btn menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Open menu">â˜°</button>
+   <div class="page-title"><small>GLOBAL BUSINESS INTELLIGENCE</small><h1>Global Operations Dashboard</h1></div>
+  </div>
+  <div class="top-actions">
+   <label class="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg>
+    <input id="searchInput" placeholder="Search dashboard...">
+   </label>
+   <button class="icon-btn" title="Notifications">
+    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i class="dot"></i>
+   </button>
+   <div class="profile"><div class="avatar" id="gbnUserAvatar">GB</div><div class="profile-info"><span id="gbnUserName">Loading account...</span><small id="gbnUserBusiness">Loading business profile...</small></div></div><button class="icon-btn" id="gbnLogoutButton" type="button" title="Logout" aria-label="Logout">â†ª</button>
+  </div>
+ </header>
+
+ <div class="section-head"><h2>Business Overview</h2><span id="today">Global Network Overview</span></div>
+ <section class="stats">
+  <article class="card"><div class="stat-top">TOTAL BUSINESS MEMBERS <span class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span></div><div class="stat-value" id="gbnTotalMembers">Loading...</div><div class="stat-foot"><span class="positive">Live database count</span> Â· Registered business accounts</div></article>
+  <article class="card"><div class="stat-top">BUYERS &amp; SUPPLIERS <span class="stat-icon purple"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M20 8v6M17 11h6"/></svg></span></div><div class="stat-value" style="font-size:1rem;line-height:1.8"><span>Buyers: <strong id="gbnTotalBuyers">Loading...</strong></span><br><span>Suppliers: <strong id="gbnTotalSuppliers">Loading...</strong></span></div><div class="stat-foot"><span class="positive">Live database count</span> Â· Registered account roles</div></article><article class="card"><div class="stat-top">BUSINESS OPPORTUNITIES <span class="stat-icon purple"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 3 8-9M15 5h6v6"/></svg></span></div><div class="stat-value" id="gbnTotalOpportunities">Loading...</div><div class="stat-foot"><span class="positive">Live database count</span> · Active opportunities</div></article>
+  <article class="card"><div class="stat-top">ACTIVE RFQ REQUESTS <span class="stat-icon blue"><svg viewBox="0 0 24 24"><path d="M4 4h16v13H8l-4 4zM8 9h8M8 13h5"/></svg></span></div><div class="stat-value">86</div><div class="stat-foot">Smart sourcing Â· Demo figure</div></article>
+  <article class="card"><div class="stat-top">COUNTRIES REACHED <span class="stat-icon green"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18"/></svg></span></div><div class="stat-value">42</div><div class="stat-foot">International reach Â· Demo figure</div></article>
+ </section>
+
+ <div class="section-head"><h2>Global Network Activity</h2><span>Illustrative visualization</span></div>
+ <section class="middle-grid">
+  <article class="card map-card">
+   <div class="map-head"><h3>GLOBAL BUSINESS CONNECTIONS</h3><select><option>All Regions</option><option>Asia</option><option>Europe</option><option>North America</option></select></div>
+   <div class="map-area">
+    <svg class="world" viewBox="0 0 800 350" preserveAspectRatio="xMidYMid meet">
+     <g class="land">
+      <path d="M65 80l35-25 60-8 35 18 30-3 25 25-12 22-30 8-12 30-30 12-12 35-25 8-18-35-25-15-8-32-25-15z"/>
+      <path d="M210 205l28 8 23 30-8 45-20 43-18-12-8-42-18-36z"/>
+      <path d="M355 75l35-20 45 5 25 20-10 23-38 8-22-12-30 4-20-15z"/>
+      <path d="M375 120l45-12 35 20 15 40-20 48-25 35-25-12-12-38-25-28z"/>
+      <path d="M450 75l55-25 80 5 55 20 70 5 28 30-25 25-55-8-25 25-48-8-25 20-45-12-35 10-35-30-30-20z"/>
+      <path d="M625 215l40-10 35 20-10 30-42 8-30-20z"/>
+      <path d="M520 205l28 10 10 35-18 20-25-22z"/>
+     </g>
+     <g class="route">
+      <path d="M155 120 Q300 5 430 135"/><path d="M430 135 Q540 55 640 120"/><path d="M430 135 Q350 240 250 250"/><path d="M430 135 Q560 210 650 235"/>
+     </g>
+     <g>
+      <circle class="pin" cx="155" cy="120" r="7"/><circle class="pin" cx="430" cy="135" r="7"/>
+      <circle class="pin" cx="640" cy="120" r="7"/><circle class="pin" cx="250" cy="250" r="7"/>
+      <circle class="pin" cx="650" cy="235" r="7"/>
+     </g>
+    </svg>
+    <div class="map-tag" style="left:44%;top:35%">Europe Â· Asia</div>
+    <div class="map-legend"><b style="color:#eaf3ff">NETWORK REGIONS</b><br><i class="legend-dot"></i>Asia Pacific<br><i class="legend-dot" style="background:#a56bff"></i>Europe<br><i class="legend-dot" style="background:#42a5ff"></i>Americas</div>
+   </div>
+  </article>
+  <article class="card activity-card">
+   <h3 style="font-size:13px">RECENT ACTIVITY</h3>
+   <div class="activity-list">
+    <div class="activity"><div class="activity-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v13H8l-4 4z"/></svg></div><div><strong>New RFQ submitted</strong><p>A buyer request was added to the demo activity feed.</p><time>Recently Â· Sample activity</time></div></div>
+    <div class="activity"><div class="activity-icon" style="color:var(--purple);background:#302044"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/></svg></div><div><strong>New business profile</strong><p>A sample supplier profile appears in the network.</p><time>Recently Â· Sample activity</time></div></div>
+    <div class="activity"><div class="activity-icon" style="color:var(--blue);background:#1b3150"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 3 8-9"/></svg></div><div><strong>Market opportunity</strong><p>Explore a new international market opportunity.</p><time>Recently Â· Sample activity</time></div></div>
+   </div>
+  </article>
+ </section>
+
+ <div class="section-head"><h2>Business Analytics</h2><span>Illustrative sample data Â· Not live statistics</span></div>
+ <section class="bottom-grid">
+  <article class="card chart-card">
+   <h3>NETWORK GROWTH</h3><p class="chart-sub">Illustrative monthly activity</p>
+   <div class="bar-chart">
+    <div class="bar-group"><i class="bar" style="height:35%"></i><i class="bar alt" style="height:25%"></i></div>
+    <div class="bar-group"><i class="bar" style="height:48%"></i><i class="bar alt" style="height:38%"></i></div>
+    <div class="bar-group"><i class="bar" style="height:60%"></i><i class="bar alt" style="height:47%"></i></div>
+    <div class="bar-group"><i class="bar" style="height:75%"></i><i class="bar alt" style="height:58%"></i></div>
+    <div class="bar-group"><i class="bar" style="height:90%"></i><i class="bar alt" style="height:72%"></i></div>
+   </div>
+   <div class="bar-labels"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span></div>
+  </article>
+  <article class="card chart-card">
+   <h3>OPPORTUNITY TRENDS</h3><p class="chart-sub">Illustrative trend lines</p>
+   <div class="line-chart"><svg viewBox="0 0 300 130" preserveAspectRatio="none">
+    <path d="M0 110H300M0 75H300M0 40H300" stroke="#26364c" stroke-dasharray="3 5" fill="none"/>
+    <path class="line-a" d="M0 105 Q30 90 55 94 T110 60 T165 76 T220 38 T300 15"/>
+    <path class="line-b" d="M0 118 Q35 105 55 108 T110 88 T165 95 T220 70 T300 53"/>
+   </svg></div>
+  </article>
+  <article class="card chart-card">
+   <h3>BUSINESS WORKFLOW</h3><p class="chart-sub">How GBN connects businesses</p>
+   <div class="pipeline"><div class="node">01</div><div class="connector"></div><div class="node">02</div><div class="connector"></div><div class="node p">03</div></div>
+   <div class="pipeline-labels"><span>Discover</span><span>Connect</span><span>Collaborate</span></div>
+   <p class="chart-sub" style="margin-top:24px;line-height:1.7">Discover potential partners, start conversations and explore business opportunities.</p>
+  </article>
+ </section>
+ <footer class="footer">GLOBAL BUSINESS NETWORK Â· CONNECT GLOBALLY. GROW TOGETHER.</footer>
+</main>
+</div>
+<script>
+document.getElementById("today").textContent = new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+document.getElementById("searchInput").addEventListener("keydown",function(e){
+ if(e.key==="Enter" && this.value.trim()){
+  const term=this.value.trim().toLowerCase();
+  const links=[...document.querySelectorAll(".nav a")];
+  const match=links.find(a=>a.textContent.toLowerCase().includes(term));
+  if(match) window.location.href=match.href;
+  else alert("No matching dashboard section found.");
+ }
+});
+document.addEventListener("click",function(e){
+ const sidebar=document.getElementById("sidebar");
+ if(window.innerWidth<=760 && sidebar.classList.contains("open") && !sidebar.contains(e.target) && !e.target.closest(".menu-toggle")) sidebar.classList.remove("open");
+});
+</script>
+    <script src="../js/gbn-global-shell.js"></script>
+<script src="../js/gbn-site-video-20261110_175454.js"></script>
+<script src="../js/gbn-dashboard-auth-20261113_115330.js"></script>
+<script src="../js/gbn-live-members-20261113.js"></script>
+<script src="../js/gbn-live-buyers-suppliers-20261113.js"></script>
+<script src="../js/gbn-live-opportunities-20261114.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

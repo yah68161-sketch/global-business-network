@@ -1,0 +1,132 @@
+/* GBN Analyzer premium form layout */
+#analyzerForm {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    align-items: start;
+}
+
+#analyzerForm > label {
+    display: block;
+    width: 100%;
+    margin: 12px 0 2px;
+    color: #e5effa;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+#analyzerForm > label:first-of-type {
+    margin-top: 0;
+}
+
+#analyzerForm > input,
+#analyzerForm > select,
+#analyzerForm input[list],
+#analyzerForm #businessCategory,
+#analyzerForm #businessModel,
+#analyzerForm .gbn-target-picker {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+#analyzerForm > input,
+#analyzerForm > select {
+    min-height: 52px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+#analyzerForm .gbn-universal-help {
+    display: block;
+    margin: 0 0 4px;
+    line-height: 1.65;
+}
+
+#analyzerForm .gbn-target-picker {
+    margin: 2px 0 8px;
+}
+
+#analyzerForm > button {
+    width: 100%;
+    min-height: 54px;
+    margin-top: 18px;
+    letter-spacing: .2px;
+}
+
+#analyzerForm input:focus,
+#analyzerForm select:focus,
+#analyzerForm .gbn-target-search:focus {
+    outline: none;
+    border-color: #20d9bd;
+    box-shadow: 0 0 0 3px rgba(32, 217, 189, .13);
+}
+
+#buyerSegments h4,
+#marketResearch h4,
+#buyerCategories h4,
+#buyerKeywords h4,
+#marketGapList h4 {
+    margin: 20px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(90, 140, 175, .25);
+    color: #53dfc6;
+    line-height: 1.5;
+}
+
+#buyerSegments h4:first-child,
+#marketResearch h4:first-child,
+#buyerCategories h4:first-child,
+#buyerKeywords h4:first-child,
+#marketGapList h4:first-child {
+    margin-top: 8px;
+}
+
+#buyerSegments ul,
+#marketResearch ul,
+#buyerCategories ul,
+#marketGapList ul,
+#buyerProfile ul {
+    padding-left: 21px;
+    line-height: 1.8;
+}
+
+.gbn-ci-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.gbn-ci-card h4 {
+    margin: 20px 0 8px;
+    color: #53dfc6;
+}
+
+.gbn-ci-card ul {
+    padding-left: 21px;
+    color: #c5d3e2;
+    line-height: 1.8;
+}
+
+.gbn-ci-card p {
+    color: #aebfd1;
+    line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+    .analyzer-panel {
+        padding: 20px 16px;
+    }
+
+    #analyzerForm {
+        gap: 8px;
+    }
+
+    #analyzerForm > label {
+        margin-top: 10px;
+    }
+
+    .gbn-ci-card {
+        padding: 18px;
+    }
+}

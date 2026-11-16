@@ -1,0 +1,61 @@
+﻿#gbn-welcome-hero .gbn-welcome-title {
+  width: 100%;
+  max-width: 1450px;
+  font-size: clamp(48px, 9vw, 116px);
+  line-height: 1.45;
+  letter-spacing: .025em;
+  padding: 55px 12px 35px;
+  text-shadow:
+    0 0 12px #168bff,
+    0 0 28px #087bff,
+    0 0 48px #004cff,
+    0 8px 22px #000;
+}
+
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter {
+  transition:
+    opacity .75s ease,
+    filter .75s ease,
+    transform .75s ease;
+  transform-origin: top center;
+}
+
+/* Large letters hanging at different heights and angles */
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(5n+1) {
+  top: -28px;
+  rotate: -7deg;
+}
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(5n+2) {
+  top: 22px;
+  rotate: 6deg;
+}
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(5n+3) {
+  top: -13px;
+  rotate: -3deg;
+}
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(5n+4) {
+  top: 30px;
+  rotate: 8deg;
+}
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter:nth-child(5n) {
+  top: -20px;
+  rotate: -5deg;
+}
+
+/* Keep each visible letter glowing while it hangs */
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter.is-visible {
+  animation: gbn-letter-float 3s ease-in-out infinite;
+}
+
+/* Spaces do not get hanging threads */
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter.gbn-space::before,
+#gbn-welcome-hero .gbn-welcome-title .gbn-letter.gbn-space::after {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #gbn-welcome-hero .gbn-welcome-title {
+    font-size: clamp(38px, 11vw, 62px);
+    padding-top: 45px;
+  }
+}

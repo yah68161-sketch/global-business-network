@@ -1,0 +1,103 @@
+.buyer-discovery {
+    margin: 38px 0;
+    padding: 30px;
+    background: #f7f9fc;
+    border: 1px solid #e5eaf1;
+    border-radius: 18px;
+}
+
+.buyer-heading {
+    margin-bottom: 24px;
+}
+
+.buyer-eyebrow {
+    color: #16856a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.buyer-heading h2 {
+    color: #172b45;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.buyer-heading p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.buyer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.buyer-card {
+    background: #ffffff;
+    border: 1px solid #e5eaf1;
+    border-radius: 14px;
+    padding: 23px;
+}
+
+.buyer-number {
+    color: #16856a;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.buyer-card h3 {
+    color: #172b45;
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.buyer-card p,
+.buyer-card li {
+    color: #59677a;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.buyer-card ul {
+    padding-left: 20px;
+}
+
+.buyer-card li {
+    margin: 8px 0;
+}
+
+.keyword-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.buyer-keyword {
+    display: inline-block;
+    padding: 8px 11px;
+    border-radius: 20px;
+    background: #eaf4f1;
+    color: #176b55;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.buyer-disclaimer {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 22px;
+}
+
+@media (max-width: 700px) {
+    .buyer-discovery {
+        padding: 18px;
+    }
+
+    .buyer-grid {
+        grid-template-columns: 1fr;
+    }
+}

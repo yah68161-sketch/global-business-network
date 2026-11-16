@@ -1,0 +1,83 @@
+﻿#gbn-welcome-hero {
+  position: relative;
+  width: min(96%, 1500px);
+  min-height: clamp(330px, 48vw, 690px);
+  margin: 24px auto 34px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255,190,65,.8);
+  border-radius: 22px;
+  background: #04132f url("../assets/gbn-welcome-hero.png") center/cover no-repeat;
+  box-shadow: 0 0 25px rgba(0,145,255,.35), 0 0 55px rgba(255,177,40,.18);
+  animation: gbnWelcomeAppear 1.2s ease both;
+}
+#gbn-welcome-hero::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,.20) 49%, rgba(65,190,255,.18) 52%, transparent 61%);
+  transform: translateX(-80%);
+  animation: gbnWelcomeShine 6s ease-in-out infinite;
+}
+#gbn-welcome-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 35px rgba(0,145,255,.22);
+}
+#gbn-welcome-hero .gbn-welcome-glow {
+  position: absolute;
+  z-index: 3;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle,rgba(0,190,255,.27),rgba(255,190,50,.12) 35%,transparent 72%);
+  transition: opacity .2s ease;
+}
+#gbn-welcome-hero.gbn-pointer-active .gbn-welcome-glow { opacity: 1; }
+#gbn-welcome-hero .gbn-welcome-scan {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  pointer-events: none;
+  background: linear-gradient(90deg,transparent,#00c8ff,#ffd36b,transparent);
+  box-shadow: 0 0 18px #00bfff;
+  animation: gbnWelcomeScan 5s linear infinite;
+}
+@keyframes gbnWelcomeAppear {
+  from {opacity:0; transform:translateY(28px) scale(.98)}
+  to {opacity:1; transform:translateY(0) scale(1)}
+}
+@keyframes gbnWelcomeShine {
+  0%,15% {transform:translateX(-80%)}
+  65%,100% {transform:translateX(80%)}
+}
+@keyframes gbnWelcomeScan {
+  0% {transform:translateY(-330px);opacity:0}
+  15%,85% {opacity:1}
+  100% {transform:translateY(0);opacity:0}
+}
+@media(max-width:700px) {
+  #gbn-welcome-hero {
+    width:96%;
+    min-height:260px;
+    border-radius:14px;
+    margin:14px auto 22px;
+    background-position: center;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  #gbn-welcome-hero, #gbn-welcome-hero::before,
+  #gbn-welcome-hero .gbn-welcome-scan {animation:none}
+}

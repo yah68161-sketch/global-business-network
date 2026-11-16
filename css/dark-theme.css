@@ -1,0 +1,444 @@
+﻿/* ==========================================
+   GLOBAL BUSINESS NETWORK - PREMIUM DARK
+   Shared theme. Original CSS files preserved.
+========================================== */
+
+:root {
+    color-scheme: dark;
+    --gbn-bg: #080f1c;
+    --gbn-bg-soft: #0d1728;
+    --gbn-surface: #111e32;
+    --gbn-surface-2: #16263c;
+    --gbn-border: rgba(148, 180, 205, 0.16);
+    --gbn-text: #f1f6fc;
+    --gbn-muted: #9eafc4;
+    --gbn-primary: #32d6c0;
+    --gbn-primary-2: #13a995;
+    --gbn-blue: #5b9cff;
+    --gbn-radius: 18px;
+    --gbn-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--gbn-bg);
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 15% 0%, rgba(24, 110, 130, 0.13), transparent 38%),
+        radial-gradient(ellipse at 90% 12%, rgba(48, 100, 180, 0.10), transparent 35%),
+        var(--gbn-bg) !important;
+    color: var(--gbn-text) !important;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+}
+
+::selection {
+    background: rgba(50, 214, 192, 0.28);
+    color: white;
+}
+
+a {
+    transition: color .2s ease, background .2s ease, border-color .2s ease;
+}
+
+p {
+    color: var(--gbn-muted);
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--gbn-text);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+}
+
+.navbar,
+.analyzer-nav {
+    position: relative;
+    z-index: 10;
+    background: rgba(11, 22, 39, 0.88) !important;
+    border-bottom: 1px solid var(--gbn-border) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.logo,
+.brand {
+    color: var(--gbn-text) !important;
+    letter-spacing: -1px;
+}
+
+.logo span,
+.brand span,
+footer span {
+    color: var(--gbn-primary) !important;
+}
+
+nav a,
+.nav-buttons a,
+.analyzer-nav nav a {
+    color: #c2cfdf !important;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+nav a:hover,
+.nav-buttons a:hover,
+.analyzer-nav nav a:hover {
+    color: var(--gbn-primary) !important;
+}
+
+.join,
+.primary-btn,
+.hero-buttons .primary-btn,
+#analyzerForm button,
+.opportunity-search button,
+.search-panel button {
+    background: linear-gradient(135deg, var(--gbn-primary), #24b8d0) !important;
+    color: #061720 !important;
+    border: 1px solid transparent !important;
+    border-radius: 10px !important;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(50, 214, 192, .14);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.join:hover,
+.primary-btn:hover,
+.hero-buttons .primary-btn:hover,
+#analyzerForm button:hover,
+.opportunity-search button:hover,
+.search-panel button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(50, 214, 192, .22);
+}
+
+.secondary-btn,
+.login {
+    color: var(--gbn-primary) !important;
+    border-color: rgba(50, 214, 192, .55) !important;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1,
+.analyzer-hero h1,
+.directory-hero h1 {
+    letter-spacing: -0.04em;
+}
+
+.hero h1 span,
+.analyzer-hero h1 span,
+.directory-hero h1 span {
+    color: var(--gbn-primary) !important;
+}
+
+.tagline,
+.section-heading > p,
+.eyebrow,
+.buyer-eyebrow,
+.directory-kicker,
+.opportunity-heading > p:first-child {
+    color: var(--gbn-primary) !important;
+}
+
+.description,
+.hero-visual p,
+.section-heading p,
+.feature-card p,
+.opportunity-card p {
+    color: var(--gbn-muted) !important;
+}
+
+.globe {
+    filter: drop-shadow(0 0 35px rgba(50, 214, 192, .3));
+}
+
+.floating-card,
+.feature-card,
+.business-card,
+.global-company-card,
+.profile-header,
+.profile-section,
+.search-panel,
+.directory-search,
+.opportunity-search,
+.opportunity-card,
+.analyzer-panel,
+.report-card,
+.insight-card,
+.buyer-card,
+.research-panel,
+.table-wrap {
+    background: linear-gradient(145deg, rgba(20, 36, 57, .96), rgba(13, 25, 42, .96)) !important;
+    border: 1px solid var(--gbn-border) !important;
+    border-radius: var(--gbn-radius) !important;
+    box-shadow: var(--gbn-shadow);
+}
+
+.feature-card,
+.opportunity-card,
+.global-company-card {
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.feature-card:hover,
+.opportunity-card:hover,
+.global-company-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(50, 214, 192, .5) !important;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, .3);
+}
+
+.features,
+.business-search,
+.opportunity-engine {
+    background: rgba(9, 19, 33, .78) !important;
+}
+
+.stats h2,
+.directory-stats strong,
+.feature-card span,
+.profile-label,
+.profile-info-grid strong,
+.profile-link,
+.profile-back,
+.opportunity-result-heading span,
+.opportunity-country,
+.opportunity-tag,
+.industry-label,
+.company-country {
+    color: var(--gbn-primary) !important;
+}
+
+.directory-hero {
+    background:
+        radial-gradient(circle at 85% 15%, rgba(50, 214, 192, .15), transparent 35%),
+        linear-gradient(135deg, #132941, #102139) !important;
+    border: 1px solid var(--gbn-border);
+    border-radius: 24px;
+}
+
+.directory-search input,
+.directory-filters select,
+.search-panel input,
+.search-panel select,
+.opportunity-search input,
+.opportunity-search select,
+#analyzerForm input,
+#analyzerForm select,
+.research-form input,
+.research-form select,
+.research-form textarea,
+input,
+select,
+textarea {
+    background-color: #091526 !important;
+    color: var(--gbn-text) !important;
+    border: 1px solid #30445d !important;
+    border-radius: 10px !important;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #73869e !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--gbn-primary) !important;
+    box-shadow: 0 0 0 3px rgba(50, 214, 192, .10);
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+#clearFilters,
+.global-pagination button,
+.secondary-btn {
+    border-color: rgba(50, 214, 192, .5) !important;
+    color: var(--gbn-primary) !important;
+}
+
+.global-pagination button.active-page {
+    background: var(--gbn-primary) !important;
+    color: #061720 !important;
+}
+
+.company-tags span,
+.opportunity-tag,
+.industry-label {
+    background: rgba(50, 214, 192, .12) !important;
+    border: 1px solid rgba(50, 214, 192, .18);
+    border-radius: 30px;
+}
+
+.demo-status,
+.demo-notice,
+.directory-notice,
+.disclaimer,
+.notice,
+.buyer-disclaimer {
+    border-radius: 12px;
+}
+
+.demo-status {
+    background: rgba(230, 190, 90, .12) !important;
+    border: 1px solid rgba(230, 190, 90, .25);
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--gbn-text);
+}
+
+th {
+    background: #172941;
+    color: var(--gbn-primary);
+    text-align: left;
+}
+
+th, td {
+    padding: 13px 15px;
+    border-bottom: 1px solid var(--gbn-border);
+}
+
+tr:hover td {
+    background: rgba(50, 214, 192, .035);
+}
+
+footer,
+.analyzer-footer,
+.buyer-footer {
+    background: rgba(8, 16, 29, .7);
+    color: var(--gbn-muted) !important;
+    border-top: 1px solid var(--gbn-border);
+}
+
+footer p,
+.analyzer-footer,
+.buyer-footer {
+    color: var(--gbn-muted) !important;
+}
+
+.profile-logo {
+    background: linear-gradient(135deg, var(--gbn-primary), #4e9fff) !important;
+}
+
+.score-track {
+    background: #263950 !important;
+}
+
+.score-fill {
+    background: linear-gradient(90deg, var(--gbn-primary), #5b9cff) !important;
+}
+
+.search-links a {
+    color: var(--gbn-primary) !important;
+}
+
+.disclaimer,
+.notice,
+.directory-notice {
+    background: rgba(230, 190, 90, .06);
+    border: 1px solid rgba(230, 190, 90, .2);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--gbn-primary);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .feature-grid,
+    .global-business-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar,
+    .analyzer-nav {
+        padding: 18px 5% !important;
+    }
+
+    nav,
+    .analyzer-nav nav {
+        gap: 12px !important;
+        flex-wrap: wrap;
+    }
+
+    nav a,
+    .analyzer-nav nav a {
+        font-size: 13px;
+    }
+
+    .hero,
+    .features,
+    .business-search,
+    .opportunity-engine {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+
+    .feature-grid,
+    .global-business-grid,
+    .directory-filters,
+    .report-grid,
+    .insights-grid,
+    .buyer-grid,
+    .profile-info-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .analyzer-main {
+        width: 92%;
+        padding: 38px 0;
+    }
+
+    .analyzer-panel {
+        padding: 22px !important;
+    }
+
+    .profile-container {
+        width: 94%;
+        padding: 12px;
+    }
+
+    .profile-header {
+        padding: 22px !important;
+    }
+
+    .directory-hero {
+        padding: 38px 16px !important;
+    }
+
+    .table-wrap {
+        max-width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}

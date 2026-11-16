@@ -1,0 +1,49 @@
+﻿#buyerKeywords.keyword-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+#buyerKeywords .buyer-keyword {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid rgba(80, 170, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(35, 105, 180, 0.16);
+    color: inherit;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+#buyerCategories h4,
+#buyerSegments h4,
+#marketResearch h4 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: inherit;
+}
+
+#buyerCategories ul,
+#buyerSegments ul,
+#marketResearch ul {
+    margin-bottom: 16px;
+}
+
+.gbn-auto-sync-note {
+    margin: 12px 0;
+    padding: 10px 14px;
+    border-left: 3px solid #36a9e8;
+    border-radius: 6px;
+    background: rgba(54, 169, 232, 0.10);
+    color: inherit;
+    font-size: 0.9rem;
+}
+
+.gbn-cc-country-grid input[type="checkbox"]:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}

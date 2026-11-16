@@ -1,0 +1,61 @@
+﻿.gbn-universal-help {
+    display: block;
+    color: #9eb2c8;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: -5px;
+}
+
+#analyzerForm input[list],
+#analyzerForm #businessCategory,
+#analyzerForm #businessModel {
+    width: 100%;
+}
+
+#analyzerForm input:focus,
+#analyzerForm select:focus {
+    outline: none;
+    border-color: #13d1ad;
+    box-shadow: 0 0 0 3px rgba(19, 209, 173, 0.12);
+}
+
+#buyerProfile li,
+#buyerSegments li,
+#marketResearch li,
+#businessGaps li,
+#nextSteps li,
+#buyerCategories li {
+    line-height: 1.8;
+}
+
+#buyerKeywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+#buyerKeywords h4 {
+    flex-basis: 100%;
+    margin-bottom: 2px;
+}
+
+#buyerKeywords .buyer-keyword {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #31536b;
+    border-radius: 20px;
+    background: #102b40;
+    color: #bcefe5;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.gbn-universal-help {
+    max-width: 100%;
+}
+
+@media (max-width: 650px) {
+    #buyerKeywords .buyer-keyword {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart RFQ | GBN</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link rel="stylesheet" href="../css/gbn-global-shell.css">
+<link rel="stylesheet" href="../css/gbn-site-video-20261110_175454.css">
+<link rel="stylesheet" href="../css/gbn-interactive-hover-20261110_182717.css">
+<link rel="stylesheet" href="../css/gbn-blue-text-20261110_182955.css">
+<link rel="stylesheet" href="../css/gbn-public-dollar-coins-20261111_154647.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">GBN<span>.</span></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="suppliers.html">Suppliers</a>
+        <a href="buyers.html">Buyers</a>
+        <a href="rfq.html">Smart RFQ</a>
+    </nav>
+    <div class="nav-buttons">
+        <a href="login.html">Login</a>
+        <a href="signup.html" class="join">Join GBN</a>
+    </div>
+</header>
+
+<section class="features">
+    <div class="section-heading">
+        <p>SMART REQUEST FOR QUOTATION</p>
+        <h2>Find the Right Business Deal</h2>
+        <p>Create a request and connect with potential suppliers.</p>
+    </div>
+
+    <div class="feature-card" style="max-width:650px; margin:auto;">
+        <form id="rfqForm">
+            <label>Product or Service</label>
+            <input type="text" placeholder="What do you need?" required>
+
+            <br><br>
+
+            <label>Quantity</label>
+            <input type="number" placeholder="Enter quantity" required>
+
+            <br><br>
+
+            <label>Destination Country</label>
+            <input type="text" placeholder="Enter country" required>
+
+            <br><br>
+
+            <label>Additional Details</label>
+            <textarea placeholder="Describe your requirements..." rows="5"></textarea>
+
+            <br><br>
+
+            <button type="submit" class="primary-btn">Submit RFQ</button>
+        </form>
+        <p id="rfqMessage"></p>
+    </div>
+</section>
+
+<footer>
+    <h2>GBN<span>.</span></h2>
+    <p>A New Global Business Ecosystem</p>
+</footer>
+
+<script>
+document.getElementById("rfqForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.getElementById("rfqMessage").textContent =
+        "Demo: Your RFQ form is ready. Backend connection is not active yet.";
+});
+</script>
+
+    <script src="../js/gbn-global-shell.js"></script>
+<script src="../js/gbn-site-video-20261110_175454.js"></script>
+<script src="../js/gbn-public-dollar-coins-20261111_154647.js"></script>
+</body>
+</html>
+
+
+
+
+

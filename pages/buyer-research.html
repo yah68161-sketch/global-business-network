@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Research | Global Business Network</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/buyer-research.css">
+
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link rel="stylesheet" href="../css/gbn-global-shell.css">
+<link rel="stylesheet" href="../css/gbn-site-video-20261110_175454.css">
+<link rel="stylesheet" href="../css/gbn-interactive-hover-20261110_182717.css">
+<link rel="stylesheet" href="../css/gbn-blue-text-20261110_182955.css">
+<link rel="stylesheet" href="../css/gbn-public-dollar-coins-20261111_154647.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">GBN<span>.</span></div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="directory.html">Global Directory</a>
+            <a href="suppliers.html">Suppliers</a>
+            <a href="opportunity-analyzer.html">Opportunity Analyzer</a>
+            <a href="buyer-research.html">Buyer Research</a>
+        </nav>
+    </header>
+
+    <main class="buyer-container">
+        <section class="buyer-hero">
+            <span class="eyebrow">GLOBAL BUYER INTELLIGENCE</span>
+            <h1>Discover Your Next <span>Business Buyer.</span></h1>
+            <p>Research potential international buyers, explore business directories and organize your company leads.</p>
+        </section>
+
+        <section class="research-panel">
+            <h2>01. Search Potential Buyers</h2>
+            <p>Enter your product and target market to prepare relevant search links.</p>
+
+            <form id="buyerSearchForm" class="research-form">
+                <label for="searchProduct">Product or Service</label>
+                <input id="searchProduct" type="text" placeholder="Example: Ready-Made Garments" required>
+
+                <label for="searchCountry">Target Country</label>
+                <select id="searchCountry" required>
+                    <option value="">Select country</option>
+                    <option>Germany</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>United Arab Emirates</option>
+                    <option>Saudi Arabia</option>
+                    <option>Japan</option>
+                    <option>China</option>
+                    <option>India</option>
+                    <option>Malaysia</option>
+                    <option>Singapore</option>
+                    <option>Australia</option>
+                    <option>Canada</option>
+                    <option>France</option>
+                    <option>Italy</option>
+                    <option>South Korea</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="buyerType">Buyer Category</label>
+                <select id="buyerType">
+                    <option value="importer">Importer</option>
+                    <option value="wholesaler">Wholesaler</option>
+                    <option value="distributor">Distributor</option>
+                    <option value="retailer">Retailer</option>
+                    <option value="private label buyer">Private-label buyer</option>
+                    <option value="sourcing company">Sourcing company</option>
+                </select>
+
+                <button type="submit" class="primary-btn">Generate Buyer Search</button>
+            </form>
+
+            <div id="searchResults" class="search-results" hidden>
+                <h3>Search the Web</h3>
+                <p>Open a search provider to explore potential companies.</p>
+                <div id="searchLinks" class="search-links"></div>
+                <p class="notice">Search results are external. GBN does not verify these companies automatically.</p>
+            </div>
+        </section>
+
+        <section class="research-panel">
+            <h2>02. Save a Potential Buyer</h2>
+            <p>Add company information that you have found and reviewed yourself.</p>
+
+            <form id="buyerSaveForm" class="research-form">
+                <label for="companyName">Company Name</label>
+                <input id="companyName" type="text" placeholder="Company name" required>
+
+                <label for="companyCountry">Country</label>
+                <input id="companyCountry" type="text" placeholder="Company country" required>
+
+                <label for="companyWebsite">Official Website</label>
+                <input id="companyWebsite" type="url" placeholder="https://example.com" required>
+
+                <label for="companySource">Where did you find this company?</label>
+                <input id="companySource" type="text" placeholder="Google, Europages, referral...">
+
+                <label for="companyStatus">Research Status</label>
+                <select id="companyStatus">
+                    <option value="Not checked">Not checked</option>
+                    <option value="Website checked">Website checked</option>
+                    <option value="Business activity checked">Business activity checked</option>
+                    <option value="Contact details checked">Contact details checked</option>
+                </select>
+
+                <button type="submit" class="primary-btn">Save Company</button>
+            </form>
+        </section>
+
+        <section class="research-panel">
+            <div class="saved-heading">
+                <div>
+                    <h2>03. Saved Buyer List</h2>
+                    <p>Your saved research records on this browser.</p>
+                </div>
+                <button id="exportBuyers" class="secondary-btn" type="button">Export CSV</button>
+            </div>
+            <div id="buyerCount" class="buyer-count">0 companies saved</div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Country</th>
+                            <th>Website</th>
+                            <th>Research Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="buyerTableBody">
+                        <tr><td colspan="5">No companies saved yet.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="notice">Records are stored in this browser only. They are not uploaded to a GBN server.</p>
+        </section>
+    </main>
+
+    <footer class="buyer-footer">
+        Global Business Network | Buyer Research Workspace
+    </footer>
+
+    <script src="../js/buyer-research.js"></script>
+    <script src="../js/gbn-global-shell.js"></script>
+<script src="../js/gbn-site-video-20261110_175454.js"></script>
+<script src="../js/gbn-public-dollar-coins-20261111_154647.js"></script>
+</body>
+</html>
+
+
+
+
+
+

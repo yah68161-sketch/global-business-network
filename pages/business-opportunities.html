@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Opportunities | Global Business Network</title>
+<link rel="stylesheet" href="../css/gbn-global-shell.css">
+<link rel="stylesheet" href="../css/gbn-site-video-20261110_175454.css">
+<link rel="stylesheet" href="../css/gbn-interactive-hover-20261110_182717.css">
+<link rel="stylesheet" href="../css/gbn-blue-text-20261110_182955.css">
+<link rel="stylesheet" href="../css/gbn-business-opportunities-20261114_145506.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+</head>
+<body>
+<main class="gbn-op-wrap">
+ <div class="gbn-op-top">
+  <div>
+   <h1>Business Opportunities</h1>
+   <p class="gbn-op-sub">Discover business possibilities and connect with the global network.</p>
+  </div>
+  <button class="gbn-op-btn" id="showPublish">+ Publish Opportunity</button>
+ </div>
+
+ <div id="message" class="gbn-op-message"></div>
+
+ <div class="gbn-op-tabs">
+  <button class="gbn-op-tab active" data-tab="browse">Explore Opportunities</button>
+  <button class="gbn-op-tab" data-tab="mine">My Opportunities</button>
+  <button class="gbn-op-tab gbn-op-hidden" id="adminTab" data-tab="admin">Admin Management</button>
+ </div>
+
+ <section id="publishPanel" class="gbn-op-panel gbn-op-hidden">
+  <h2 id="formHeading">Publish a Business Opportunity</h2>
+  <form id="opportunityForm">
+   <div class="gbn-op-form-grid">
+    <div class="gbn-op-field full">
+     <label for="opTitle">Opportunity title</label>
+     <input class="gbn-op-input" id="opTitle" minlength="5" maxlength="160" required placeholder="Example: Looking for an international distribution partner">
+    </div>
+    <div class="gbn-op-field">
+     <label for="opCategory">Business category</label>
+     <input class="gbn-op-input" id="opCategory" minlength="2" maxlength="80" required placeholder="Example: Garments, Agriculture, Technology">
+    </div>
+    <div class="gbn-op-field">
+     <label for="opCountry">Country</label>
+     <input class="gbn-op-input" id="opCountry" minlength="2" maxlength="100" required placeholder="Example: Bangladesh">
+    </div>
+    <div class="gbn-op-field full">
+     <label for="opDescription">Opportunity details</label>
+     <textarea class="gbn-op-textarea" id="opDescription" minlength="20" maxlength="3000" required placeholder="Explain the opportunity, requirements and the type of business partner you are looking for."></textarea>
+     <div class="gbn-op-count" id="descriptionCount">0 / 3000</div>
+    </div>
+   </div>
+   <input type="hidden" id="editingId">
+   <input type="hidden" id="editingStatus" value="active">
+   <div class="gbn-op-card-actions">
+    <button class="gbn-op-btn" type="submit" id="submitOpportunity">Publish Opportunity</button>
+    <button class="gbn-op-btn secondary" type="button" id="cancelPublish">Cancel</button>
+   </div>
+  </form>
+ </section>
+
+ <section id="browsePanel">
+  <div class="gbn-op-panel">
+   <h2>Explore the Network</h2>
+   <div class="gbn-op-filters">
+    <input class="gbn-op-input" id="searchOp" placeholder="Search opportunities...">
+    <input class="gbn-op-input" id="filterCategory" placeholder="Filter by category">
+    <input class="gbn-op-input" id="filterCountry" placeholder="Filter by country">
+   </div>
+   <div id="browseList" class="gbn-op-grid"><div class="gbn-op-loading">Loading opportunities...</div></div>
+  </div>
+ </section>
+
+ <section id="minePanel" class="gbn-op-hidden">
+  <div class="gbn-op-panel">
+   <h2>My Published Opportunities</h2>
+   <div id="mineList" class="gbn-op-grid"><div class="gbn-op-loading">Loading your opportunities...</div></div>
+  </div>
+ </section>
+
+ <section id="adminPanel" class="gbn-op-hidden">
+  <div class="gbn-op-panel">
+   <h2>All Business Opportunities</h2>
+   <p class="gbn-op-sub">Admin access only. Manage opportunity status and listings.</p>
+   <div id="adminList" class="gbn-op-grid"></div>
+  </div>
+ </section>
+</main>
+
+<script src="../js/gbn-global-shell.js"></script>
+<script src="../js/gbn-site-video-20261110_175454.js"></script>
+<script src="../js/gbn-business-opportunities-20261114_145506.js"></script>
+</body>
+</html>

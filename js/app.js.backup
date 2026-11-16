@@ -1,0 +1,30 @@
+console.log("Global Business Network is running!");
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("GBN Homepage Loaded Successfully");
+});
+// GBN GLOBAL BUSINESS SEARCH
+function searchBusinesses() {
+    const search = document.getElementById("businessSearch").value.toLowerCase();
+    const country = document.getElementById("countryFilter").value;
+    const category = document.getElementById("categoryFilter").value;
+    const cards = document.querySelectorAll(".business-card");
+    let count = 0;
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const matchSearch = text.includes(search);
+        const matchCountry = !country || card.dataset.country === country;
+        const matchCategory = !category || card.dataset.category === category;
+
+        if (matchSearch && matchCountry && matchCategory) {
+            card.style.display = "block";
+            count++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    document.getElementById("searchMessage").textContent =
+        count + " businesses found.";
+}
