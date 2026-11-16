@@ -40,7 +40,7 @@ app.get("/api/health", (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log("GLOBAL BUSINESS NETWORK");
     console.log("Backend Server Started!");
     console.log("http://localhost:" + PORT);
